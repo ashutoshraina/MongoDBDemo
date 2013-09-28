@@ -61,7 +61,9 @@
 		{
             var result = QuestionConnectionHandler.MongoCollection
                                 .FindAllAs<Question>()
-                                .Where(q => q.Text.Contains(searchText)).ToList();
+                                .Where(q => q.Text.Contains(searchText))
+            					.Select(q => new {q.Text, q.Answer})
+            					.ToList();
 
             Console.WriteLine("We found {0} Questions that contain text {1}",result.Count(),searchText);
 		}
