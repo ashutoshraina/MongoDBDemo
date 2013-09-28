@@ -9,8 +9,9 @@
 		{
 			//SeedData();
 			//ShowSimpleQueries();
-            ShowAdvancedQueries();
-			Console.Write("Press any key to continue . . . ");
+            //ShowAdvancedQueries();
+            //ShowOpsQueries();
+			Console.Write("\n"+"Press any key to continue . . . ");
 			Console.ReadKey(true);
 		}
 		
@@ -67,6 +68,15 @@
             var createdAfter = new DateTime(2013, 09, 27, 15, 45, 56);
             advancedQueries.QuestionsCreatedAfter(createdAfter);
             advancedQueries.ProjectQuestionThatContains("kind");
+        }
+        
+        public static void ShowOpsQueries()
+        {
+        	var opsQueries = new OperationsQueries();
+        	opsQueries.ExplainPlan();
+        	opsQueries.CreateIndex();
+        	opsQueries.ExplainPlan();
+        	opsQueries.PrintLinqExpression();
         }
 	}
 }
