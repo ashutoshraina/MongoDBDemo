@@ -4,9 +4,6 @@ namespace MongoDBDemo
 	using System;
 	using MongoDB.Driver;
 
-	/// <summary>
-	/// Description of MongoConnectionHandler.
-	/// </summary>
 	public class MongoConnectionHandler<T> where T : IMongoEntity
 	{
 		public MongoCollection<T> MongoCollection { get; private set; }

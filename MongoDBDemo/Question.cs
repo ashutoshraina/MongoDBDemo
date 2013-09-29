@@ -3,9 +3,6 @@ namespace MongoDBDemo
 {
 	using System;
 	
-	/// <summary>
-	/// Description of Question.
-	/// </summary>
 	public class Question : MongoEntity
 	{
 		public string Text { get; set; }
