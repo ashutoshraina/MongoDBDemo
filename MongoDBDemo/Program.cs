@@ -77,6 +77,9 @@
         	opsQueries.CreateIndex();
         	opsQueries.ExplainPlan();
         	opsQueries.PrintLinqExpression();
+        	opsQueries.GetAllCollections();
+        	opsQueries.PrintSomeStats();
+        	opsQueries.ShowAllDatabases();
         }
 	}
 }
