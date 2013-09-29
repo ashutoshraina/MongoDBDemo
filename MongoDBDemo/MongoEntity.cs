@@ -1,11 +1,9 @@
-﻿
-namespace MongoDBDemo
+﻿namespace MongoDBDemo
 {
-	using System;
-	using MongoDB.Bson;
+    using MongoDB.Bson;
 
-	public class MongoEntity : IMongoEntity
-	{
-		 public ObjectId Id { get; set; }
-	}
+    public class MongoEntity : IMongoEntity
+    {
+        public ObjectId Id { get; set; }
+    }
 }
