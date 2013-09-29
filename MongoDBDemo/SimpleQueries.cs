@@ -1,4 +1,5 @@
-﻿namespace MongoDBDemo
+﻿using MongoDB.Driver.Linq;
+namespace MongoDBDemo
 {
 	using System;
 	using MongoDB.Driver;
@@ -48,7 +49,7 @@
 		
 		public void GetAllQuestions()
 		{
-			var cursor = this.QuestionConnectionHandler.MongoCollection.FindAllAs<Question>();
+			var cursor = this.QuestionConnectionHandler.MongoCollection.AsQueryable<Question>();
 			var resultSet = cursor.ToList();
 
 			Console.WriteLine("Writing out all the questions");
@@ -59,7 +60,7 @@
 		
 		public ObjectId GetOneQuestion()
 		{
-			var cursor = this.QuestionConnectionHandler.MongoCollection.FindOneAs<Question>();
+			var cursor = this.QuestionConnectionHandler.MongoCollection.AsQueryable<Question>().FirstOrDefault();
 
             Console.WriteLine(cursor.Id);
 			return cursor.Id;

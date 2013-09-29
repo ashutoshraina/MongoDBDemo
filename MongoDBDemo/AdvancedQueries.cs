@@ -60,7 +60,7 @@
 		public void ProjectQuestionThatContains(string searchText)
 		{
             var result = QuestionConnectionHandler.MongoCollection
-                                .FindAllAs<Question>()
+                                .AsQueryable<Question>()
                                 .Where(q => q.Text.Contains(searchText))
             					.Select(q => new {q.Text, q.Answer})
             					.ToList();
