@@ -23,31 +23,23 @@
             var questions = new List<Question>();
             var question1 = new Question
                             {
-                                Text = "Who are you ?",
-                                Answer = "I am MongoDB.",
-                                CreatedOn = DateTime.Now,
-                                Difficulty = 3
+                                Text = "Who are you ?", Answer = "I am MongoDB.",
+                                CreatedOn = DateTime.Now, Difficulty = 3
                             };
             var question2 = new Question
                             {
-                                Text = "What kind of db are you ?",
-                                Answer = "I am a document database.",
-                                CreatedOn = DateTime.Now,
-                                Difficulty = 3
+                                Text = "What kind of db are you ?", Answer = "I am a document database.",
+                                CreatedOn = DateTime.Now, Difficulty = 3
                             };
             var question3 = new Question
                             {
-                                Text = "How fast are you ?",
-                                Answer = "I am kind of super quick.",
-                                CreatedOn = DateTime.Now,
-                                Difficulty = 2
+                                Text = "How fast are you ?", Answer = "I am kind of super quick.",
+                                CreatedOn = DateTime.Now, Difficulty = 2
                             };
             var question4 = new Question
                             {
-                                Text = "Where are we right now?",
-                                Answer = "We are in Pune.",
-                                CreatedOn = DateTime.Now,
-                                Difficulty = 4
+                                Text = "Where are we right now?", Answer = "We are in Pune.",
+                                CreatedOn = DateTime.Now, Difficulty = 4
                             };
             questions.Add(question1);
             questions.Add(question2);
@@ -90,6 +82,7 @@
             var advancedQueries = new AdvancedQueries();
             advancedQueries.UserNameStartsWith("Ba");
             advancedQueries.NumberOfQuestionsWithDifficultyLevel(3);
+            advancedQueries.UsersWithReputationGreaterThanUsingBsonDocument(3);
             advancedQueries.UsersWithReputaionGreaterThan(70);
             var createdAfter = new DateTime(2013, 09, 27, 15, 45, 56);
             advancedQueries.QuestionsCreatedAfter(createdAfter);
@@ -99,9 +92,11 @@
         public static void ShowOpsQueries()
         {
             var opsQueries = new OperationsQueries();
-            opsQueries.ExplainPlan();
+            opsQueries.ExplainPlanWithLinqBasedQuery();
+            opsQueries.ExplainPlanWithBsonDocumentBasedQuery();
             opsQueries.CreateIndex();
-            opsQueries.ExplainPlan();
+            opsQueries.ExplainPlanWithLinqBasedQuery();
+            opsQueries.ExplainPlanWithBsonDocumentBasedQuery();
             opsQueries.PrintLinqExpression();
             opsQueries.GetAllCollections();
             opsQueries.PrintSomeStats();

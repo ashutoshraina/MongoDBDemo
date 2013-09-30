@@ -17,12 +17,21 @@
             QuestionConnectionHandler.MongoCollection.DropAllIndexes();
         }
 
-        public void ExplainPlan()
+        public void ExplainPlanWithLinqBasedQuery()
         {
-            var result = QuestionConnectionHandler.MongoCollection
+            var explainPlan = QuestionConnectionHandler.MongoCollection
                                                   .AsQueryable()
                                                   .Where(q => q.Difficulty >= 3).Explain();
-            Console.WriteLine("\n" + result);
+            Console.WriteLine("\n Explain plan for Linq based Query");
+            Console.WriteLine("\n" + explainPlan);
+        }
+
+        public void ExplainPlanWithBsonDocumentBasedQuery()
+        {
+            var query = Query<Question>.GTE(q => q.Difficulty, 3);
+            var explainPlan = QuestionConnectionHandler.MongoCollection.FindAs<Question>(query).Explain();
+            Console.WriteLine("\n Explain plan for BsonDocument based query");
+            Console.WriteLine("\n" + explainPlan);
         }
 
         public void CreateIndex()

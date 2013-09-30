@@ -22,12 +22,8 @@ namespace MongoDBDemo
         public void CreateQuestion(Question question)
         {
             //// Save the entity with safe mode (WriteConcern.Acknowledged)
-            var result = QuestionConnectionHandler.MongoCollection.Save<Question>(question,
-                                                                                       new MongoInsertOptions
-                                                                                       {
-                                                                                           WriteConcern =
-                                                                                               WriteConcern.Acknowledged
-                                                                                       });
+            var result = QuestionConnectionHandler.MongoCollection
+                                     .Save<Question>(question, new MongoInsertOptions { WriteConcern = WriteConcern.Acknowledged});
 
             if (!result.Ok)
             {
@@ -42,13 +38,8 @@ namespace MongoDBDemo
         public void CreateUser(User user)
         {
             //// Save the entity with safe mode (WriteConcern.Acknowledged)
-            var result = UserConnectionHandler.MongoCollection.Save<User>(user,
-                                                                               new MongoInsertOptions
-                                                                               {
-                                                                                   WriteConcern =
-                                                                                       WriteConcern
-                                                                                       .Acknowledged
-                                                                               });
+            var result = UserConnectionHandler.MongoCollection
+                                    .Save<User>(user, new MongoInsertOptions { WriteConcern = WriteConcern.Acknowledged });
 
             if (!result.Ok)
             {

@@ -21,7 +21,21 @@
         {
             var result = UserConnectionHandler.MongoCollection.AsQueryable()
                                               .Where(u => u.Reputation > reputation).ToList();
+            Console.WriteLine("\n Using Linq........");
+            Console.WriteLine("We found {0} Users With Reputation greater than {1}", result.Count(), reputation);
 
+            foreach (var user in result)
+            {
+                Console.WriteLine("User : {0} -- Reputation : {1}", user.Name, user.Reputation);
+            }
+        }
+
+        public void UsersWithReputationGreaterThanUsingBsonDocument(int reputation)
+        {
+            var query = Query<User>.GT(u => u.Reputation, reputation);
+            var result = UserConnectionHandler.MongoCollection.FindAs<User>(query);
+
+            Console.WriteLine("\n Using BsonDocument.......");
             Console.WriteLine("We found {0} Users With Reputation greater than {1}", result.Count(), reputation);
 
             foreach (var user in result)
