@@ -15,8 +15,8 @@ namespace MongoDBDemo
 
         public SimpleQueries()
         {
-            UserConnectionHandler = new MongoConnectionHandler<User>();
-            QuestionConnectionHandler = new MongoConnectionHandler<Question>();
+            UserConnectionHandler = new MongoConnectionHandler<User>("MongoDBDemo");
+            QuestionConnectionHandler = new MongoConnectionHandler<Question>("MongoDBDemo");
         }
 
         public void CreateQuestion(Question question)

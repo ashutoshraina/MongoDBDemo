@@ -7,11 +7,11 @@
         public MongoCollection<T> MongoCollection { get; private set; }
         private const string ConnectionString = @"mongodb://localhost";
 
-        public MongoConnectionHandler()
+        public MongoConnectionHandler(string databaseName)
         {
             var client = new MongoClient(ConnectionString);
             var server = client.GetServer();
-            var database = server.GetDatabase("MongoDBDemo");
+            var database = server.GetDatabase(databaseName);
             MongoCollection = database.GetCollection<T>(typeof (T).Name.ToLower() + "s");
         }
     }

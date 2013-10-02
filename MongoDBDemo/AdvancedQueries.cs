@@ -13,8 +13,8 @@
 
         public AdvancedQueries()
         {
-            UserConnectionHandler = new MongoConnectionHandler<User>();
-            QuestionConnectionHandler = new MongoConnectionHandler<Question>();
+            UserConnectionHandler = new MongoConnectionHandler<User>("MongoDBDemo");
+            QuestionConnectionHandler = new MongoConnectionHandler<Question>("MongoDBDemo");
         }
 
         public void UsersWithReputaionGreaterThan(int reputation)
@@ -67,7 +67,8 @@
         public void UserNameStartsWith(string searchKey)
         {
             var query = Query.Matches("Name", new BsonRegularExpression(string.Format("^{0}", searchKey)));
-            var result = UserConnectionHandler.MongoCollection.Find(query).ToList();
+            var result = UserConnectionHandler.MongoCollection.Find(query)
+            				.SetFields(Fields<User>.Include(u => u.Name, u => u.Reputation)).ToList();
 
             Console.WriteLine("We found {0} Users whose name starts with {1}", result.Count(), searchKey);
         }

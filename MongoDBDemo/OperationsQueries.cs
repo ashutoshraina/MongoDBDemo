@@ -12,7 +12,7 @@
 
         public OperationsQueries()
         {
-            QuestionConnectionHandler = new MongoConnectionHandler<Question>();
+            QuestionConnectionHandler = new MongoConnectionHandler<Question>("MongoDBDemo");
             //dropping all indexes for the demo to make sense
             QuestionConnectionHandler.MongoCollection.DropAllIndexes();
         }
