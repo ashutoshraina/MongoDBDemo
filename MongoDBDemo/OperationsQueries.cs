@@ -23,7 +23,7 @@
                                                   .AsQueryable()
                                                   .Where(q => q.Difficulty >= 3).Explain();
             Console.WriteLine("\n Explain plan for Linq based Query");
-            Console.WriteLine("\n" + explainPlan);
+            Console.WriteLine("\n" + JsonHelper.FormatJson(explainPlan.ToString()));
         }
 
         public void ExplainPlanWithBsonDocumentBasedQuery()
@@ -31,7 +31,7 @@
             var query = Query<Question>.GTE(q => q.Difficulty, 3);
             var explainPlan = QuestionConnectionHandler.MongoCollection.FindAs<Question>(query).Explain();
             Console.WriteLine("\n Explain plan for BsonDocument based query");
-            Console.WriteLine("\n" + explainPlan);
+            Console.WriteLine("\n" + JsonHelper.FormatJson(explainPlan.ToString()));
         }
 
         public void CreateIndex()

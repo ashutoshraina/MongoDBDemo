@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AdvancedQueries.cs" />
     <Compile Include="IMongoEntity.cs" />
+    <Compile Include="JosnHelper.cs" />
     <Compile Include="MongoConnectionHandler.cs" />
     <Compile Include="MongoEntity.cs" />
     <Compile Include="OperationsQueries.cs" />
