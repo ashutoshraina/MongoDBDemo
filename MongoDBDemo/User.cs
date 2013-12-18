@@ -1,5 +1,6 @@
 ﻿namespace MongoDBDemo
 {
+    using Infrastructure;
     public class User : MongoEntity
     {
         public string Name { get; set; }

@@ -1,7 +1,7 @@
 ﻿namespace MongoDBDemo
 {
     using System;
-
+    using Infrastructure;
     public class Question : MongoEntity
     {
         public string Text { get; set; }

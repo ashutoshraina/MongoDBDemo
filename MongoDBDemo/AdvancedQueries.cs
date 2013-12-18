@@ -5,7 +5,7 @@
     using MongoDB.Driver.Linq;
     using MongoDB.Driver.Builders;
     using MongoDB.Bson;
-
+    using Infrastructure;
     public class AdvancedQueries
     {
         protected readonly MongoConnectionHandler<User> UserConnectionHandler;

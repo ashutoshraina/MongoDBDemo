@@ -1,4 +1,4 @@
-﻿using MongoDB.Driver.Linq;
+﻿
 
 namespace MongoDBDemo
 {
@@ -7,7 +7,8 @@ namespace MongoDBDemo
     using System.Linq;
     using MongoDB.Bson;
     using MongoDB.Driver.Builders;
-
+    using MongoDB.Driver.Linq;
+    using Infrastructure;
     public class SimpleQueries
     {
         protected readonly MongoConnectionHandler<User> UserConnectionHandler;

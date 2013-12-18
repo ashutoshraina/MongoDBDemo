@@ -1,4 +1,4 @@
-﻿namespace MongoDBDemo
+﻿namespace Infrastructure
 {
     using MongoDB.Bson;
 
