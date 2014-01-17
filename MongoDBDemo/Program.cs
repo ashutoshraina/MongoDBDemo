@@ -1,18 +1,20 @@
 ﻿namespace MongoDBDemo
 {
-	using MongoDBDemo.Queries;
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
+    using MongoDBDemo.Model;
+    using MongoDBDemo.Queries;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
 	internal class Program {
 		public static void Main (string[] args) {
-			//ShowOpLogQueries();
+			//ShowOpLog();
 			//SeedData();
 			//ShowSimpleQueries();
 			//ShowAdvancedQueries();
 			//ShowOpsQueries();
-			Console.WriteLine("Press any key to continue . . . ");
+            ShowOptimisticConcurrency();
+            Console.WriteLine("Press any key to continue . . . ");
 			Console.ReadLine();
 		}
 
@@ -94,10 +96,35 @@
 			opsQueries.ShowAllDatabases();
 		}
 
-		public static void ShowOpLogQueries () {
+		public static void ShowOpLog () {
 			var oplog = new QueryOpLog();
-			var resut = oplog.GetLastEntryInOpLog();
-			resut.ForEach(r => Console.WriteLine(r));
+			var result = oplog.GetLastEntryInOpLog();
+			foreach (var item in result) {
+				foreach (var element in item.Elements.Where(elem => elem.Name.Equals("op") && elem.Value.Equals("u"))) {
+					Console.WriteLine(item);
+				}
+			}
 		}
+
+        public static void ShowOptimisticConcurrency()
+        {
+            var person = new Person {Name = "Ashutosh Raina" };
+            var ocQuery = new OptimisticConcurrency();
+            ocQuery.CreatePerson(person);
+            Console.WriteLine(string.Format("Person with Name {0} was created ", person.Name));
+            Console.WriteLine(string.Format("Id : {0} and Version : {1}",person.Id,person.Version));
+            Console.WriteLine("Enter the new name for the Person : ");
+            // To see this in action start another instance of this app from the console
+            var newName = Console.ReadLine();
+            person.Name = newName;
+            if (ocQuery.EditPerson(person))
+            {
+                Console.WriteLine("Person was edited successfully");
+            }
+            else
+            {
+                Console.WriteLine("The version of the person changed");
+            }
+        }
 	}
 }
