@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
+VisualStudioVersion = {0}
+MinimumVisualStudioVersion = {0}
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBDemo", "MongoDBDemo\MongoDBDemo.csproj", "{B8202FE1-5729-412D-B502-1971E63951D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{DA494478-0BAA-4ED2-A9A3-75398621356A}"
@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FEE81A
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub", "PubSub\PubSub.csproj", "{CF13E2D5-5672-467A-A231-C4BB317D0B10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,10 +26,19 @@ Global
 		{B8202FE1-5729-412D-B502-1971E63951D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8202FE1-5729-412D-B502-1971E63951D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8202FE1-5729-412D-B502-1971E63951D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF13E2D5-5672-467A-A231-C4BB317D0B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF13E2D5-5672-467A-A231-C4BB317D0B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF13E2D5-5672-467A-A231-C4BB317D0B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF13E2D5-5672-467A-A231-C4BB317D0B10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA494478-0BAA-4ED2-A9A3-75398621356A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA494478-0BAA-4ED2-A9A3-75398621356A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA494478-0BAA-4ED2-A9A3-75398621356A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA494478-0BAA-4ED2-A9A3-75398621356A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PubSub\PubSub.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

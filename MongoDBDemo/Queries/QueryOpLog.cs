@@ -1,14 +1,11 @@
 ﻿namespace MongoDBDemo.Queries
 {
+
 	using System;
 	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
 	using System.Threading;
-	using System.Threading.Tasks;
 	using Infrastructure;
 	using MongoDB.Bson;
-	using MongoDB.Bson.IO;
 	using MongoDB.Driver;
 	using MongoDB.Driver.Builders;
 
@@ -23,7 +20,7 @@
 			BsonValue lastId = BsonMinKey.Value;
 
 			while (true) {
-                var query = Query.GT("ts", lastId);
+				var query = Query.GT("ts", lastId);
 				var cursor = OpLogHandler.MongoCollection.FindAs<BsonDocument>(query)
                             .SetFlags(QueryFlags.TailableCursor | QueryFlags.AwaitData)
                             .SetSortOrder(SortBy.Ascending("$natural"));
